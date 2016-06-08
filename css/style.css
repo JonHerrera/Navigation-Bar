@@ -1,0 +1,271 @@
+*{
+	font: 12px "Arial", Helvetica, sans-serif;
+}
+	
+	nav.sidenav ul {
+	/*  */
+		top: 0;
+		left: 0;
+		/* making the nav stuck to the very edge of the screen (attached inside the <nav>)*/
+		position: fixed;
+		/* the sidenav will stick to the side of the page regardless of scroll */
+		margin: 0;
+		padding: 0;
+		/* I want everything to be snug, not pushing other elements out of the way*/
+		height: 100%;
+		/* the nav will cover from top to bottom */
+		width: 90px;
+		/* sets the amount of space the navbar will take (hit and miss to contain it all*/
+		overflow: hidden;
+		/* scrollbar appears when many links appear */
+		list-style-type: none;
+		/* getting rid of the bullets */
+		background-color: white;
+		box-shadow: 2px 2px rgba(181,181,181,.5);
+
+	}
+
+		nav.sidenav ul li {	
+			float: right;
+			/* i want the links to hug the right most side of the navbar */
+			display: block;
+			/* this will stack the links on top of each other */
+			margin: 2px;
+			/* spacing out the links */
+			
+		}
+		
+		nav.sidenav ul li:first-child {
+			margin-top: 14px;
+			/* I want all the links to be evenly spaced but the first one needs to come down a bit */
+		}
+
+			nav.sidenav ul li a:link{
+				display: block;
+				/* the whole area inside the link box will be clickable */
+				/* from here down I am simply styling the looks of the icons */
+				text-decoration: none;
+				padding: 5px;
+				color: white;
+				background-color: #4CEAF9;
+				border-radius: 20px 0px 20px 0px;
+				box-shadow: 1px 2px #B5B5B5;
+				border: .5px solid #B5B5B5;
+				font-style: oblique;
+				font-weight: bold;
+			}
+
+			nav.sidenav ul li a:visited {
+				color: hotpink;
+			}
+
+			nav.sidenav ul li a:hover {
+				color:#B5B5B5;
+				background-color: white;
+				box-shadow: 1px 2px #4CEAF9;
+				border: .5px solid #4CEAF9
+			}
+
+			nav.sidenav ul li a:active {
+				color:white;
+				background-color: #B5B5B5;
+			}
+
+			nav.sidenav ul li a.active {
+				color: #4CEAF9;
+				background-color: white;
+			}
+	
+	nav.dropdown {
+		display: none;
+		/* my dropdown menu will not show until a screen is small enough */
+	}
+	
+	article.content {
+	/* the article is needed to  place all the contents onto the right side of the screen, away from the nav bar */
+		margin: 10px 5px 0px 90px;
+		/* 	margin: top right bottom left */
+		/* the left margin begins right after the nav bar */
+	}
+
+@media screen and (max-width: 1024px) {
+/* here I am making the side nav for when the screen is the above width or less */
+nav.sidenav {
+	top: 0;
+	left: 0;
+	/* these properties will make the whole nav snug in the top left corner */
+	display: block;
+	/* the nav section will push the next stuff down a line */
+	height: auto;
+	/* the height will adjust based on the amount of content within */
+	width: 100%;
+	/* the width of the navbar is the whole screen */
+	position: fixed;
+	/* the navbar will always fill the top section of the screen */
+}
+
+	nav.sidenav ul {
+		list-style-type: none;
+		/* removes the bullets */
+		margin: 0;
+		padding: 0;
+		/* these two will make the <ul> snug within the <nav> section */
+		overflow: hidden;
+		/* extra content will not appear */
+		background-color: rgb(255,255,255);
+		/* the background color of the whole navbar */
+		height: auto;
+		width: 100%;
+		/* here I am overriding the sidenav properties to conform to the new nav settings */
+	}
+
+		nav.sidenav ul li {
+		/* we do not need to customize this with color as the <a>s take up full width */
+			float: left;
+			/* all <li> items will start at the left */
+			display: block;
+		}
+
+			nav.sidenav ul li:first-child {
+				margin-top: 2px;
+				margin-left: 20px;
+				/* overriding the first-child margins from the sidenav view */
+			}
+			
+			nav.sidenav ul li a:link {
+				display: block;
+				/* the whole area that the text resides in will be clickable */
+				padding: 8px 8px 3px 10px;
+				/* padding: top right bottom left */
+				/* making the link text space out a bit more */
+				/* if we added a margin tag the there would be a gap between each link, making the design not as smooth */
+				text-decoration: none;
+				color: white;
+			}
+
+			nav.sidenav ul li a:visited {
+				color: hotpink;
+			}
+			
+			nav.sidenav ul li a:hover {
+				color: #B5B5B5;
+				background-color: white;
+			}
+			
+			nav.sidenav ul li a:active {
+				color: white;
+				background-color: #B5B5B5;
+			}
+			
+			nav.sidenav ul li a.active {
+				color: #4CEAF9;
+				background-color: white;
+			}
+
+article.content {
+	margin: 35px 2% 2% 2%;
+}
+
+nav.dropdown {
+	display: none;
+}
+}
+
+@media screen and (max-width: 450px) {
+	nav.sidenav {
+		display: none;
+	}
+	
+	nav.dropdown {
+	/* I am essentially creating a condensed nav bar with a dropdown for links */
+		top: 0;
+		left:0;
+		width: 100%;
+		height: auto;
+		display: block;
+		position: fixed;
+		/* i want the dropdown menu to follow the screen  */
+		background-color: #4CEAF9;
+		text-align: center;
+		/* the text align places the <button> into the center of the navbar b/c the whole nav bar is clickable */
+	}
+	
+	button.dropbutton {
+		/* styling the drop button following the theme from before */
+		text-decoration: none;
+		padding: 5px;
+		color: white;
+		background-color: #4CEAF9;
+		font-weight: bold;
+		border: #4CEAF9;
+		/* i got rid of the basic button border styling to have it blend with the bar */
+		
+	}
+		
+		nav.dropdown ul {
+			display: none;
+			position: absolute;
+			/* making it absolute will make the menu appear right below the button, not in relation to the screen*/
+			margin: 0;
+			padding: 0;
+			/* this gets rid of the gap between the button and the menu, a problem created when putting the links within <ul> */
+			list-style-type: none;
+			width: 100%;
+			/* setting the menu to cover the screen*/
+			height: auto;
+			overflow: auto;
+			/* if the list becomes too long it will become scrollable */
+			box-shadow: 5px 3px rgba(181, 181, 181, .2);
+			/* making the dropdown look nicer like a card as opposed to blocks */
+		}
+		
+			nav.dropdown ul li {
+				display: block;
+				/* each list item will appear on top of each other */
+				text-decoration: none;
+				/* getting rid of bullets */
+			}
+			
+				nav.dropdown ul li a:link {
+					display: block;
+					/* each link will be clickable throughout its whole section */
+					padding: 10px;
+					/* creating more space to click or tap if on smartphone */
+					text-decoration: none;
+					text-align: center;
+					background-color: white;
+					border-bottom: .5px solid #B5B5B5;
+					color: #4CEAF9;
+					font-weight: bold;
+				}
+		
+					nav.dropdown ul li a:visited {
+						color: hotpink;
+					}
+					
+					nav.dropdown ul li a:hover {
+						background-color: #4CEAF9;
+						color: white;
+					}
+					
+					nav.dropdown ul li a:active {
+						background-color: #B5B5B5;
+						color: white;
+					}	
+
+					nav.dropdown ul li a.active {
+						color: #B5B5B5;
+					}
+					
+						nav.dropdown ul li a.active:active {
+							color: white;
+						}
+					
+		nav.dropdown:hover ul {
+			display: block;
+		}
+
+	article.content {
+		margin-top: 35px;
+	}
+}

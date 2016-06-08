@@ -1,0 +1,169 @@
+*{
+	font: 12px "Arial", Helvetica, sans-serif;
+}
+
+nav.sidenav {
+	top: 0;
+	left: 0;
+	/* these properties will make the whole nav snug in the top left corner */
+	display: block;
+	/* the nav section will push the next stuff down a line */
+	height: auto;
+	/* the height will adjust based on the amount of content within */
+	width: 100%;
+	/* the width of the navbar is the whole screen */
+	position: fixed;
+	/* the navbar will always fill the top section of the screen */
+	border: .5px solid #B5B5B5;
+}
+
+	nav.sidenav ul {
+		list-style-type: none;
+		/* removes the bullets */
+		margin: 0;
+		padding: 0;
+		/* these two will make the <ul> snug within the <nav> section */
+		overflow: hidden;
+		/* extra content will not appear */
+		background-color: #4CEAF9
+		/* the background color of the whole navbar */
+	}
+
+		nav.sidenav ul li {
+		/* we do not need to customize this with color as the <a>s take up full width */
+			float: left;
+			/* all <li> items will start at the left */
+			border-right: .5px solid #B5B5B5;
+		}
+
+			nav.sidenav ul li a {
+			font-style: oblique;
+			font-weight: bold;
+			}
+			
+			nav.sidenav ul li a:link {
+				display: block;
+				/* the whole area that the text resides in will be clickable */
+				padding: 8px 5px 1px 10px;
+				/* padding: top right bottom left */
+				/* making the link text space out a bit more */
+				/* if we added a margin tag the there would be a gap between each link, making the design not as smooth */
+				text-decoration: none;
+				color: white;
+			}
+
+			nav.sidenav ul li a:visited {
+				color: hotpink;
+			}
+			
+			nav.sidenav ul li a:hover {
+				color: #B5B5B5;
+				background-color: white;
+			}
+			
+			nav.sidenav ul li a:active {
+				color: white;
+				background-color: #B5B5B5;
+			}
+			
+			nav.sidenav ul li a.active {
+				color: #4CEAF9;
+				background-color: white;
+			}
+
+
+
+section.content {
+	margin: 35px 2% 2% 2%;
+}
+
+@media screen and (max-width: 1024px) {
+/* here I am making the side nav for when the screen is the above width or less */
+	nav.sidenav ul {
+	left: 0;
+	/* making the nav stuck to the very edge of the screen */
+	position: fixed;
+	/* the sidenav will stick to the side of the page regardless of scroll */
+	margin: 0;
+	padding: 0;
+	/* I want everything to be snug, not pushing other elements out of the way*/
+	height: 100%;
+	/* the nav will cover from top to bottom */
+	width: 90px;
+	/* sets the amount of space the navbar will take (hit and miss to contain it all*/
+	overflow: auto;
+	/* scrollbar appears when many links appear */
+	list-style-type: none;
+	/* getting rid of the bullets */
+	background-color: rgba(0,0,0,0);
+	/* i am overriding the bgcolor as specified above and making it completely transparent */
+
+	}
+
+		nav.sidenav ul li {	
+			float: right;
+			/* i want the links to hug the right most side of the navbar */
+			display: block;
+			/* this will stack the links on top of each other */
+			margin: 2px;
+			/* spacing out the links */
+			border: 0;
+			/* i am overriding the border from before */
+			
+		}
+		
+		nav.sidenav ul li:first-child {
+			margin-top: 14px;
+			/* I want all the links to be evenly spaced but the first one needs to come down a bit */
+		}
+
+			nav.sidenav ul li a:link{
+				display: block;
+				/* the whole area inside the link box will be clickable */
+				/* from here down I am simply styling the looks of the icons */
+				padding: 5px;
+				color: white;
+				background-color: #4CEAF9;
+				border-radius: 20px 0px 20px 0px;
+				box-shadow: 1px 2px #B5B5B5;
+				border: .5px solid #B5B5B5;
+			}
+
+			nav.sidenav ul li a:visited {
+				color: hotpink;
+			}
+
+			nav.sidenav ul li a:hover {
+				color:#B5B5B5;
+				background-color: white;
+				box-shadow: 1px 2px #4CEAF9;
+				border: .5px solid #4CEAF9
+			}
+
+			nav.sidenav ul li a:active {
+				color:white;
+				background-color: #B5B5B5;
+			}
+
+			nav.sidenav ul li a.active {
+				color: #4CEAF9;
+				background-color: white;
+			}
+
+	section.content {
+	/* the section is needed to  place all the contents onto the right side of the screen, away from the nav bar */
+		margin: 10px 5px 0px 90px;
+		/* 	margin: top right bottom left */
+		/* the left margin begins right after the nav bar */
+	}
+}
+
+@media screen and (max-width: 450px) {
+	nav.sidenav {
+		visibility: hidden;
+	}
+
+	section.content {
+		margin: 0;
+	}
+}
